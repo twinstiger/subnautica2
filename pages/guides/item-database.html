@@ -4,22 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Item Encyclopedia — Subnautica 2 Wiki</title>
-
-  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access">
+  <meta name="keywords" content="Subnautica 2, guide, wiki, EA, Early Access, crafting, recipes">
   <meta name="author" content="SaveBook">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://subnautica2.savebook.net/pages/guides/item-database.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Item Database — Subnautica 2 Wiki">
-  <meta property="og:description" content="Subnautica 2 items and crafting recipes for Early Access players.">
+  <meta property="og:title" content="Item Encyclopedia — Subnautica 2 Wiki">
+  <meta property="og:description" content="Complete crafting recipes for Subnautica 2. Resources, tools, equipment, consumables and base building.">
   <meta property="og:url" content="https://subnautica2.savebook.net/pages/guides/item-database.html">
   <meta property="og:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
-  <meta property="og:site_name" content="Subnautica 2 Wiki">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Item Database — Subnautica 2 Wiki">
-  <meta name="twitter:description" content="Subnautica 2 items and crafting recipes for Early Access players.">
-  <meta name="twitter:image" content="https://subnautica2.savebook.net/images/hero-main.jpg">
-  <meta name="description" content="Complete item database for Subnautica 2. Resources, tools, equipment and consumables with full crafting recipes.">
+  <meta name="twitter:title" content="Item Encyclopedia — Subnautica 2 Wiki">
+  <meta name="twitter:description" content="Complete crafting recipes for Subnautica 2. Resources, tools, equipment, consumables and base building.">
+  <meta name="description" content="Complete item database for Subnautica 2. Resources, tools, equipment, consumables and base building with full crafting recipes.">
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="stylesheet" href="../../css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -28,18 +25,27 @@
     .filter-tab { background: var(--bg-card); border: 1px solid var(--border); color: #5a8090; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
     .filter-tab.active, .filter-tab:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,170,0.08); }
     .item-section { margin: 2rem 0; }
-    .item-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-    .item-table { width: 100%; border-collapse: collapse; }
-    .item-table th { text-align: left; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); background: var(--bg-secondary); }
-    .item-table td { padding: 0.7rem 1rem; font-size: 0.85rem; color: #a8c8d8; border-bottom: 1px solid var(--border); vertical-align: middle; }
-    .item-table tr:hover td { background: rgba(0,212,170,0.05); }
-    .item-name { font-weight: 700; color: var(--text); }
-    .item-recipe { font-size: 0.8rem; color: #5a8090; }
-    .item-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; padding: 0.1rem 0.4rem; border-radius: 4px; margin-right: 0.25rem; }
-    .tag-resource { color: #f5a623; background: rgba(245,166,35,0.12); }
-    .tag-tool { color: #00d4aa; background: rgba(0,212,170,0.1); }
-    .tag-equipment { color: #9b59b6; background: rgba(155,89,182,0.1); }
-    .tag-consumable { color: #e63946; background: rgba(230,57,70,0.1); }
+    .item-section-title { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .item-section-title span { font-size: 1.2rem; }
+    .item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; }
+    .item-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .item-img { width: 100%; height: 100px; object-fit: contain; background: var(--bg-secondary); padding: 0.75rem; }
+    .item-body { padding: 1rem; }
+    .item-name { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .item-type { font-size: 0.7rem; color: #5a8090; margin-bottom: 0.5rem; }
+    .item-recipe { font-size: 0.75rem; color: var(--accent); background: rgba(0,212,170,0.08); padding: 0.4rem 0.6rem; border-radius: 6px; line-height: 1.5; }
+    .item-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; padding: 0.15rem 0.4rem; border-radius: 4px; margin-right: 0.25rem; }
+    .tag-resource { color: #f5a623; background: rgba(245,166,35,0.15); }
+    .tag-electronic { color: #00d4aa; background: rgba(0,212,170,0.15); }
+    .tag-ingot { color: #e74c3c; background: rgba(231,76,60,0.15); }
+    .tag-tool { color: #3498db; background: rgba(52,152,219,0.15); }
+    .tag-equipment { color: #9b59b6; background: rgba(155,89,182,0.15); }
+    .tag-consumable { color: #e63946; background: rgba(230,57,70,0.15); }
+    .tag-food { color: #2ecc71; background: rgba(46,204,113,0.15); }
+    .tag-base { color: #e67e22; background: rgba(230,126,34,0.15); }
+    .tag-vehicle { color: #1abc9c; background: rgba(26,188,156,0.15); }
+    .tag-upgrade { color: #f39c12; background: rgba(243,156,18,0.15); }
   </style>
 </head>
 <body>
@@ -69,209 +75,754 @@
   <main class="container" style="max-width:1100px">
     <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <span>Item Encyclopedia</span></div>
     <h1 style="margin-bottom:0.25rem;">Item Encyclopedia</h1>
-    <p style="color:#5a8090;margin-bottom:0.5rem;font-size:0.9rem;"><br><img src="../../images/hero-main.jpg" alt="Subnautica 2 Items" style="width:100%;height:140px;object-fit:cover;border-radius:8px;opacity:0.35;margin-top:0.5rem;">Full crafting recipes and usage for every item in Subnautica 2. Resources → Tools → Equipment → Consumables.</p>
+    <p style="color:#5a8090;margin-bottom:0.5rem;font-size:0.9rem;">Complete crafting recipes for Subnautica 2 Early Access v1.0.</p>
 
     <div class="filter-tabs">
-      <button class="filter-tab active">All</button>
-      <button class="filter-tab">Resources</button>
-      <button class="filter-tab">Tools</button>
-      <button class="filter-tab">Equipment</button>
-      <button class="filter-tab">Consumables</button>
+      <button class="filter-tab active" onclick="filterItems('all')">All</button>
+      <button class="filter-tab" onclick="filterItems('material')">Materials</button>
+      <button class="filter-tab" onclick="filterItems('tool')">Tools</button>
+      <button class="filter-tab" onclick="filterItems('equipment')">Equipment</button>
+      <button class="filter-tab" onclick="filterItems('consumable')">Consumables</button>
+      <button class="filter-tab" onclick="filterItems('base')">Base Building</button>
+      <button class="filter-tab" onclick="filterItems('vehicle')">Vehicles</button>
     </div>
 
-    <!-- Resources -->
-    <div class="item-section">
-      <div class="item-section-title">⛏️ Resources</div>
-      <table class="item-table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Type</th>
-            <th>Location / How to Get</th>
-            <th>Usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="item-name">Titanium</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Debris around pod. Rocks. Common everywhere.</td>
-            <td class="item-recipe">Base crafting, tools, batteries</td>
-          </tr>
-          <tr>
-            <td class="item-name">Copper</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Underwater caves, rock formations. Moderate depth.</td>
-            <td class="item-recipe">Scanner, Battery, wires</td>
-          </tr>
-          <tr>
-            <td class="item-name">Quartz</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Pink/orange coral formations. Angel Comb area.</td>
-            <td class="item-recipe">Scanner, Habitat Builder</td>
-          </tr>
-          <tr>
-            <td class="item-name">Silver</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Shallow caves north of pod, 290-350m depth.</td>
-            <td class="item-recipe">Flippers, O2 Tank, advanced tools</td>
-          </tr>
-          <tr>
-            <td class="item-name">Gold</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Deeper caves. Requires O2 upgrades to reach.</td>
-            <td class="item-recipe">Habitat Builder, premium equipment</td>
-          </tr>
-          <tr>
-            <td class="item-name">Lead</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Near thermal vents, mid-depth caves.</td>
-            <td class="item-recipe">Battery, radiation equipment</td>
-          </tr>
-          <tr>
-            <td class="item-name">Lithium</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Mid-to-deep caves. Unlock after first chapters.</td>
-            <td class="item-recipe">Biomod crafting, high-tier tools</td>
-          </tr>
-          <tr>
-            <td class="item-name">Sulfur</td>
-            <td><span class="item-tag tag-resource">Raw</span></td>
-            <td>Thermal vent areas. Heat-resistant zones.</td>
-            <td class="item-recipe">Acid-related crafting, batteries</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Materials -->
+    <div class="item-section" data-category="material">
+      <div class="item-section-title"><span>⛏️</span> Materials — Crafting Resources</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Weak_Acid.png" alt="Weak Acid" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Weak Acid</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Cocoon Acid Sac ×2 + Copper ×1<br>Alt: Cocoon Acid Sac ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Enamel_Glass.png" alt="Enamel Glass" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Enamel Glass</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Glass ×1 + Bio Enamel ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Rubber.png" alt="Rubber" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Rubber</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Sea Mango Star ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Lubricant.png" alt="Lubricant" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Lubricant</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Sea Mango Star ×1<br>Alt: Halfmoon Fish ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Glass.png" alt="Glass" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Glass</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Quartz ×2<br>Alt: Salt ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Fiber.png" alt="Fiber" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Fiber</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Fiber Pulp ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Fiber_Cloth.png" alt="Fiber Cloth" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Fiber Cloth</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Fiber ×2 + Strong Acid ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Recycled_Titanium.png" alt="Recycled Titanium" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Recycled Titanium</div>
+            <div class="item-type"><span class="item-tag tag-resource">Material</span></div>
+            <div class="item-recipe">Metal Debris ×1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electronics -->
+    <div class="item-section" data-category="material">
+      <div class="item-section-title"><span>🔌</span> Electronics — Circuit Components</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Dedicated_Core.png" alt="Dedicated Core" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Dedicated Core</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Advanced Wiring Box ×1 + Quartz ×2 + Strong Acid ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Power_Battery.png" alt="Power Battery" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Power Battery</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Basic Battery ×2 + Strong Acid ×1 + Salt ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Basic_Battery.png" alt="Basic Battery" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Basic Battery</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Copper ×2 + Cocoon Acid Sac ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Wiring_Box.png" alt="Wiring Box" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Wiring Box</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Silver ×1 + Copper Wire ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_System_Chip.png" alt="System Chip" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">System Chip</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Wiring Box ×1 + Quartz ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Entangled_Power_Battery.png" alt="Entangled Power Battery" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Entangled Power Battery</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Conductive Crystal ×1 + Strong Acid ×1 + Gold Ingot ×1 + Pyrite ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Copper_Wire.png" alt="Copper Wire" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Copper Wire</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Copper ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Advanced_Wiring_Box.png" alt="Advanced Wiring Box" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Advanced Wiring Box</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Wiring Box ×1 + Gold ×1 + Sulfur ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Advanced_Battery.png" alt="Advanced Battery" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Advanced Battery</div>
+            <div class="item-type"><span class="item-tag tag-electronic">Electronic</span></div>
+            <div class="item-recipe">Conductive Crystal ×1 + Strong Acid ×1 + Silver Ingot ×1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ingots -->
+    <div class="item-section" data-category="material">
+      <div class="item-section-title"><span>🧱</span> Ingots — Refined Materials</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Titanium_Ingot.png" alt="Titanium Ingot" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Titanium Ingot</div>
+            <div class="item-type"><span class="item-tag tag-ingot">Ingot</span></div>
+            <div class="item-recipe">Titanium ×3</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Plastic_Steel_Ingot.png" alt="Plastic Steel Ingot" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Plastic Steel Ingot</div>
+            <div class="item-type"><span class="item-tag tag-ingot">Ingot</span></div>
+            <div class="item-recipe">Titanium ×2 + Lithium ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="material">
+          <img src="../../images/items_gamersky/item_Gold_Ingot.png" alt="Gold Ingot" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Gold Ingot</div>
+            <div class="item-type"><span class="item-tag tag-ingot">Ingot</span></div>
+            <div class="item-recipe">Gold ×3</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Tools -->
-    <div class="item-section">
-      <div class="item-section-title">🔧 Tools</div>
-      <table class="item-table">
-        <thead>
-          <tr><th>Item</th><th>Type</th><th>Recipe</th><th>Usage</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="item-name">Survival Multitool</td>
-            <td><span class="item-tag tag-tool">Tool</span></td>
-            <td class="item-recipe">3× Titanium</td>
-            <td>Cut plants, break rocks, basic interaction. Always carry it.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Scanner</td>
-            <td><span class="item-tag tag-tool">Tool</span></td>
-            <td class="item-recipe">2 Titanium + 2 Quartz + 1 Acidic Raion Pod</td>
-            <td>Scan fragments to unlock blueprints. Most important tool.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Habitat Builder</td>
-            <td><span class="item-tag tag-tool">Tool</span></td>
-            <td class="item-recipe">2 Titanium + 1 Copper + 1 Gold</td>
-            <td>Place base modules. Foundation of your underwater home.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Bio Scanner</td>
-            <td><span class="item-tag tag-tool">Tool</span></td>
-            <td class="item-recipe">2 Copper + 1 Silver + 1 Titanium</td>
-            <td>Identify creatures and scan biological samples.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Sonar Resonator</td>
-            <td><span class="item-tag tag-tool">Tool</span></td>
-            <td class="item-recipe">3 Copper + 2 Gold + 1 Battery</td>
-            <td>Locate points of interest. Essential for navigation.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Flashlight</td>
-            <td><span class="item-tag tag-tool">Tool</span></td>
-            <td class="item-recipe">1 Titanium + 1 Glass + 1 Battery</td>
-            <td>Illuminate dark caves and deep zones.</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="item-section" data-category="tool">
+      <div class="item-section-title"><span>🔧</span> Tools</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Repair_Tool.png" alt="Repair Tool" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Repair Tool</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Titanium Ingot ×1 + Wiring Box ×1 + Basic Battery ×1 + Sulfur ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Sonic_Resonator.png" alt="Sonic Resonator" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Sonic Resonator</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Basic Battery ×1 + Titanium Ingot ×2 + Lead ×2 + Wiring Box ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Repair_Tool.png" alt="Multi Survival Tool" class="item-img" loading="lazy" style="opacity:0.5">
+          <div class="item-body">
+            <div class="item-name">Multi Survival Tool</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Titanium ×3</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Flashlight.png" alt="Flashlight" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Flashlight</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Titanium ×2 + Quartz ×1 + Basic Battery ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Scanner.png" alt="Scanner" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Scanner</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Titanium ×2 + Quartz ×2 + Basic Battery ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Habitat_Builder.png" alt="Habitat Builder" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Habitat Builder</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Titanium ×2 + Glass ×1 + Basic Battery ×1 + Copper Wire ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Air_Bag.png" alt="Air Bag" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Air Bag</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Titanium ×2 + Rubber ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Underwater_Propeller.png" alt="Underwater Propeller" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Underwater Propeller</div>
+            <div class="item-type"><span class="item-tag tag-tool">Tool</span></div>
+            <div class="item-recipe">Silver ×1 + Wiring Box ×1 + Lubricant ×1 + Basic Battery ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="tool">
+          <img src="../../images/items_gamersky/item_Lure_Light_Stick.png" alt="Lure Light Stick" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Lure Light Stick</div>
+            <div class="item-type"><span class="item-tag tag-tool">Consumable</span></div>
+            <div class="item-recipe">Titanium ×1 + Quartz ×1</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Equipment -->
-    <div class="item-section">
-      <div class="item-section-title">🦾 Equipment</div>
-      <table class="item-table">
-        <thead>
-          <tr><th>Item</th><th>Type</th><th>Recipe</th><th>Benefit</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="item-name">Flippers</td>
-            <td><span class="item-tag tag-equipment">Equipment</span></td>
-            <td class="item-recipe">2× Rubber + 1× Titanium</td>
-            <td>+50% swim speed. Essential for exploration.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Standard O2 Tank</td>
-            <td><span class="item-tag tag-equipment">Equipment</span></td>
-            <td class="item-recipe">2× Rubber + 1× Titanium</td>
-            <td>+30s oxygen capacity. Required for deeper zones.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Reinforced Suit</td>
-            <td><span class="item-tag tag-equipment">Equipment</span></td>
-            <td class="item-recipe">4× Titanium + 2× Lead + 1× Gold</td>
-            <td>Pressure resistance. Unlocks deep ocean zones.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Headlamp</td>
-            <td><span class="item-tag tag-equipment">Equipment</span></td>
-            <td class="item-recipe">1× Titanium + 1× Glass + 1× Wire</td>
-            <td>Hands-free lighting. Critical for cave exploration.</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="item-section" data-category="equipment">
+      <div class="item-section-title"><span>🦾</span> Equipment — Wearables</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="equipment">
+          <img src="../../images/items_gamersky/item_Basic_Fins.png" alt="Basic Fins" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Basic Fins</div>
+            <div class="item-type"><span class="item-tag tag-equipment">Equipment</span></div>
+            <div class="item-recipe">Rubber ×2 + Fiber ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="equipment">
+          <img src="../../images/items_gamersky/item_Improved_Fins.png" alt="Improved Fins" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Improved Fins</div>
+            <div class="item-type"><span class="item-tag tag-equipment">Equipment</span></div>
+            <div class="item-recipe">Basic Fins ×1 + Fiber Cloth ×1 + Conductive Crystal ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="equipment">
+          <img src="../../images/items_gamersky/item_Standard_O2_Tank.png" alt="Standard O2 Tank" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Standard O2 Tank</div>
+            <div class="item-type"><span class="item-tag tag-equipment">Equipment</span></div>
+            <div class="item-recipe">Titanium ×2 + Rubber ×1 + Silver ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="equipment">
+          <img src="../../images/items_gamersky/item_Large_Capacity_O2_Tank.png" alt="Large Capacity O2 Tank" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Large Capacity O2 Tank</div>
+            <div class="item-type"><span class="item-tag tag-equipment">Equipment</span></div>
+            <div class="item-recipe">Standard O2 Tank ×1 + Plastic Steel Ingot ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="equipment">
+          <img src="../../images/items_gamersky/item_Ultra_Large_O2_Tank.png" alt="Ultra Large O2 Tank" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Ultra Large O2 Tank</div>
+            <div class="item-type"><span class="item-tag tag-equipment">Equipment</span></div>
+            <div class="item-recipe">Large Capacity O2 Tank ×1 + Pyrite ×3 + Copper Chloride ×3</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="equipment">
+          <img src="../../images/items_gamersky/item_Circulation_Breather.png" alt="Circulation Breather" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Circulation Breather</div>
+            <div class="item-type"><span class="item-tag tag-equipment">Equipment</span></div>
+            <div class="item-recipe">Fiber Cloth ×2 + System Chip ×1</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Consumables -->
-    <div class="item-section">
-      <div class="item-section-title">🥤 Consumables</div>
-      <table class="item-table">
-        <thead>
-          <tr><th>Item</th><th>Type</th><th>Recipe / Source</th><th>Effect</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="item-name">Water</td>
-            <td><span class="item-tag tag-consumable">Consumable</span></td>
-            <td class="item-recipe">1× Water Slug → Fabricator</td>
-            <td>Only early-game freshwater source. Thirst kills fast.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Nutrition Block</td>
-            <td><span class="item-tag tag-consumable">Consumable</span></td>
-            <td class="item-recipe">1× Biofuel Block + 1× Salt → Processor</td>
-            <td>Sustained hunger recovery. Best long-term food.</td>
-          </tr>
-          <tr>
-            <td class="item-name">First Aid Kit</td>
-            <td><span class="item-tag tag-consumable">Consumable</span></td>
-            <td class="item-recipe">2× Healing Slime + 1× Anti-corrosive</td>
-            <td>Heals damage from predator attacks.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Biofuel Block</td>
-            <td><span class="item-tag tag-consumable">Consumable</span></td>
-            <td class="item-recipe">2× Organic Matter → Fabricator</td>
-            <td>Power base systems. Burnable energy source.</td>
-          </tr>
-          <tr>
-            <td class="item-name">Attractant Flare</td>
-            <td><span class="item-tag tag-consumable">Consumable</span></td>
-            <td class="item-recipe">1× Glow Moss + 1× Sulfur</td>
-            <td>Lures fish for easier collection. Useful for farming.</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Consumables & Food -->
+    <div class="item-section" data-category="consumable">
+      <div class="item-section-title"><span>🥤</span> Consumables — Food & Medicine</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Basic_Medkit.png" alt="Basic Medkit" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Basic Medkit</div>
+            <div class="item-type"><span class="item-tag tag-consumable">Medicine</span></div>
+            <div class="item-recipe">Fiber ×1<br>Alt: Medical Coagulant ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Enhanced_Medkit.png" alt="Enhanced Medkit" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Enhanced Medkit</div>
+            <div class="item-type"><span class="item-tag tag-consumable">Medicine</span></div>
+            <div class="item-recipe">Fiber ×1 + Medical Coagulant ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Water.png" alt="Water" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Water</div>
+            <div class="item-type"><span class="item-tag tag-food">Drink</span></div>
+            <div class="item-recipe">Water Slug ×1<br>Alt: Fiber Pulp ×3</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Isotonic_Water.png" alt="Isotonic Water" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Isotonic Water</div>
+            <div class="item-type"><span class="item-tag tag-food">Drink</span></div>
+            <div class="item-recipe">Glow Slug ×1 + Salt ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Oily_Salad.png" alt="Oily Salad" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Oily Salad</div>
+            <div class="item-type"><span class="item-tag tag-food">Food</span></div>
+            <div class="item-recipe">Fiber Pulp ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_Halfmoon.png" alt="Cooked Halfmoon" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Halfmoon</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Halfmoon Fish ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_FourTooth.png" alt="Cooked Four-Tooth" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Four-Tooth</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Four-Tooth Tunicate ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_FourTooth.png" alt="Cooked Four-Wing" class="item-img" loading="lazy" style="opacity:0.7">
+          <div class="item-body">
+            <div class="item-name">Cooked Four-Wing</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Four-Wing Tunicate ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_BlackHover.png" alt="Cooked Hoverthorn" class="item-img" loading="lazy" style="opacity:0.7">
+          <div class="item-body">
+            <div class="item-name">Cooked Hoverthorn</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Hoverthorn Fish ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_Bubble.png" alt="Cooked Bubble Fish" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Bubble Fish</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Bubble Fish ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_FullMoon.png" alt="Cooked Full Moon" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Full Moon</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Full Moon Fish ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_Shock.png" alt="Cooked Shock Tunicate" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Shock Tunicate</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Shock Tunicate ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_BlueMoon.png" alt="Cooked Blue Moon" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Blue Moon</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Blue Moon Fish ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Cooked_BlackHover.png" alt="Cooked Black Hoverthorn" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cooked Black Hoverthorn</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Black Hoverthorn Fish ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Saturn_Candy.png" alt="Coral Mud" class="item-img" loading="lazy" style="opacity:0.5">
+          <div class="item-body">
+            <div class="item-name">Coral Mud</div>
+            <div class="item-type"><span class="item-tag tag-food">Special</span></div>
+            <div class="item-recipe">Coral Fragment ×3 + Saturn Candy ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Saturn_Candy.png" alt="Nutrient Block" class="item-img" loading="lazy" style="opacity:0.5">
+          <div class="item-body">
+            <div class="item-name">Nutrient Block</div>
+            <div class="item-type"><span class="item-tag tag-food">Food</span></div>
+            <div class="item-recipe">Biofuel Block ×1 + Salt ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Hover_Skewer.png" alt="Hover Fish Skewer" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Hover Fish Skewer</div>
+            <div class="item-type"><span class="item-tag tag-food">Cooked</span></div>
+            <div class="item-recipe">Hoverthorn Fish ×3 + Salt ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Halfmoon_Dried.png" alt="Halfmoon Dried" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Halfmoon Dried</div>
+            <div class="item-type"><span class="item-tag tag-food">Preserved</span></div>
+            <div class="item-recipe">Halfmoon Fish ×2 + Salt ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="consumable">
+          <img src="../../images/items_gamersky/item_Saturn_Candy.png" alt="Saturn Candy" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Saturn Candy</div>
+            <div class="item-type"><span class="item-tag tag-food">Special</span></div>
+            <div class="item-recipe">Lead ×1 + Salt ×1</div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Base Building -->
+    <div class="item-section" data-category="base">
+      <div class="item-section-title"><span>🏗️</span> Base Building — Structures & Facilities</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Ground_Locker.png" alt="Ground Locker" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Ground Locker</div>
+            <div class="item-type"><span class="item-tag tag-base">Storage</span></div>
+            <div class="item-recipe">Titanium ×3 + Quartz ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Wall_Locker.png" alt="Wall Locker" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Wall Locker</div>
+            <div class="item-type"><span class="item-tag tag-base">Storage</span></div>
+            <div class="item-recipe">Titanium ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Wall_Shelf.png" alt="Wall Shelf" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Wall Shelf</div>
+            <div class="item-type"><span class="item-tag tag-base">Storage</span></div>
+            <div class="item-recipe">Titanium ×1 + Copper ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Tail_Box.png" alt="Tail Race Box" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Tail Race Box</div>
+            <div class="item-type"><span class="item-tag tag-base">Storage</span></div>
+            <div class="item-recipe">Titanium ×3</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_NoA_Terminal.png" alt="NoA Terminal" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">NoA Terminal</div>
+            <div class="item-type"><span class="item-tag tag-base">Facility</span></div>
+            <div class="item-recipe">Titanium ×3 + Copper Wire ×1 + Glass ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Scan_Station.png" alt="Scan Station" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Scan Station</div>
+            <div class="item-type"><span class="item-tag tag-base">Facility</span></div>
+            <div class="item-recipe">System Chip ×1 + Titanium ×3 + Wiring Box ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Time_Display.png" alt="Time Display" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Time Display</div>
+            <div class="item-type"><span class="item-tag tag-base">Facility</span></div>
+            <div class="item-recipe">Titanium ×1 + Enamel Glass ×1 + Copper ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Bio_Reactor.png" alt="Bio Reactor" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Bio Reactor</div>
+            <div class="item-type"><span class="item-tag tag-base">Power</span></div>
+            <div class="item-recipe">Titanium ×3 + Glass ×1 + Copper Wire ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Indoor_Door.png" alt="Indoor Door" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Indoor Door</div>
+            <div class="item-type"><span class="item-tag tag-base">Structure</span></div>
+            <div class="item-recipe">Titanium ×3 + Glass ×1 + Copper Wire ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Ladder.png" alt="Ladder" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Ladder</div>
+            <div class="item-type"><span class="item-tag tag-base">Structure</span></div>
+            <div class="item-recipe">Titanium ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Indoor_Wall.png" alt="Indoor Wall" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Indoor Wall</div>
+            <div class="item-type"><span class="item-tag tag-base">Structure</span></div>
+            <div class="item-recipe">Titanium ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Indoor_Arch.png" alt="Indoor Arch" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Indoor Arch</div>
+            <div class="item-type"><span class="item-tag tag-base">Structure</span></div>
+            <div class="item-recipe">Titanium ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Observation_Deck.png" alt="Observation Deck" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Observation Deck</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Titanium ×3 + Quartz ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Corridor.png" alt="Corridor" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Corridor</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Titanium ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Room.png" alt="Room" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Room</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Titanium ×5</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Hatch.png" alt="Hatch" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Hatch</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Titanium ×1 + Quartz ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Window.png" alt="Window" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Window</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Glass ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Dome_Room.png" alt="Dome Room" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Dome Room</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Titanium ×5 + Glass ×5</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Crab_Room.png" alt="Crab Room" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Crab Room</div>
+            <div class="item-type"><span class="item-tag tag-base">Module</span></div>
+            <div class="item-recipe">Titanium ×5</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="base">
+          <img src="../../images/items_gamersky/item_Ceiling_Light.png" alt="Ceiling Light" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Ceiling Light (Small)</div>
+            <div class="item-type"><span class="item-tag tag-base">Light</span></div>
+            <div class="item-recipe">Titanium ×1 + Copper ×1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vehicles -->
+    <div class="item-section" data-category="vehicle">
+      <div class="item-section-title"><span>🚤</span> Vehicles & Upgrades</div>
+      <div class="item-grid">
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Scout_Ray_Chassis.png" alt="Scout Ray Chassis" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Scout Ray Chassis</div>
+            <div class="item-type"><span class="item-tag tag-vehicle">Component</span></div>
+            <div class="item-recipe">Plastic Steel Ingot ×2 + Advanced Wiring Box ×1 + Dedicated Core ×1 + Strong Acid ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Tadpole.png" alt="Tadpole" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Tadpole</div>
+            <div class="item-type"><span class="item-tag tag-vehicle">Vehicle</span></div>
+            <div class="item-recipe">Titanium Ingot ×2 + Glass ×1 + System Chip ×1 + Power Battery ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Tadpole_Carry_Chassis.png" alt="Tadpole Carry Chassis" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Tadpole Carry Chassis</div>
+            <div class="item-type"><span class="item-tag tag-vehicle">Component</span></div>
+            <div class="item-recipe">Titanium Ingot ×4 + Strontium ×3 + Enamel Glass ×3 + Dedicated Core ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Solar_Charger.png" alt="Solar Charger" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Solar Charger</div>
+            <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
+            <div class="item-recipe">Copper Ingot ×1 + Strong Acid ×1 + Pyrite ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Engine_Efficiency.png" alt="Engine Efficiency" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Engine Efficiency</div>
+            <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
+            <div class="item-recipe">Titanium Ingot ×1 + Glass ×2 + System Chip ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Cavitation_Silencer.png" alt="Cavitation Silencer" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Cavitation Silencer</div>
+            <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
+            <div class="item-recipe">Titanium ×3 + Strontium ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Tadpole_Dive1.png" alt="Tadpole Dive Module Type 1" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Tadpole Dive Module T1</div>
+            <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
+            <div class="item-recipe">Celestine ×3 + Enamel Glass ×2 + System Chip ×1</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Tadpole_Dive2.png" alt="Tadpole Dive Module Type 2" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Tadpole Dive Module T2</div>
+            <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
+            <div class="item-recipe">Dedicated Core ×2 + Pyrite ×2 + Mangalloy Ingot ×2</div>
+          </div>
+        </div>
+        <div class="item-card" data-type="vehicle">
+          <img src="../../images/items_gamersky/item_Impact_Armor.png" alt="Impact Armor" class="item-img" loading="lazy">
+          <div class="item-body">
+            <div class="item-name">Impact Armor</div>
+            <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
+            <div class="item-recipe">Enamel Glass ×2 + Strontium ×2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="footer"><div class="container"><div class="footer-bottom"><span class="footer-copy">Subnautica 2 Wiki © 2026</span><div class="footer-links"><a href="../../index.html">Home</a><a href="creature-bestiary.html">Creatures</a><a href="biomod-guide.html">Biomods</a></div></div></div></footer>
   <script src="../../js/header.js"></script>
+  <script>
+    function filterItems(category) {
+      document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.item-section').forEach(section => {
+        if (category === 'all' || section.dataset.category === category) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
