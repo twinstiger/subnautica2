@@ -1,17 +1,16 @@
 {
-  "name": "www.savebook",
+  "name": "subnautica2-wiki",
   "version": "1.0.0",
-  "description": "Forza Horizon 6 Complete Guides - savebook.net",
+  "description": "Subnautica 2 Wiki — Complete guides, creature bestiary, item database, and vehicle database.",
   "private": true,
   "scripts": {
     "dev": "python3 -m http.server 8080",
-    "build": "echo 'Static site - no build step required' && rm -rf node_modules wrangler.log",
-    "deploy": "echo 'Use Cloudflare Pages auto-deploy'"
+    "build": "echo 'Static site - no build step required'"
   },
   "repository": {
-    "url": "git+https://github.com/yourusername/www.savebook.git"
+    "url": "git+https://github.com/twinstiger/subnautica2.git"
   },
-  "keywords": ["forza-horizon", "fh6", "gaming-guides", "tuning"],
+  "keywords": ["subnautica-2", "wiki", "gaming-guides", "creature-bestiary", "item-database"],
   "author": "",
   "license": "MIT"
 }
