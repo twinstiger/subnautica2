@@ -30,4 +30,3 @@ build/
 # Wrangler
 .wrangler/
 wrangler.jsonc
-wrangler.toml
