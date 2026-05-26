@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Gallery — Subnautica 2 Wiki</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <meta name="description" content="Subnautica 2 official trailers, gameplay screenshots, and media assets.">
+  <link rel="canonical" href="https://subnautica2.savebook.net/pages/media/gallery.html">
+  <meta property="og:title" content="Media Gallery — Subnautica 2 Wiki">
+  <meta property="og:description" content="Official trailers and gameplay screenshots.">
+  <meta property="og:url" content="https://subnautica2.savebook.net/pages/media/gallery.html">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <style>
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+    .media-carousel { position:relative; width:100%; max-width:1100px; margin:2rem auto; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.5); background:#000; }
+    .media-slide { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 0.4s; display:none; }
+    .media-slide.active { opacity:1; display:block; }
+    .media-slide img, .media-slide iframe, .media-slide video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; }
+    .media-slide iframe { border:none; }
+    .media-controls { position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); display:flex; justify-content:space-between; padding:0 1rem; z-index:10; pointer-events:none; }
+    .media-btn { background:rgba(0,0,0,0.6); border:none; color:white; font-size:1.5rem; cursor:pointer; padding:0.5rem 0.75rem; border-radius:8px; pointer-events:all; line-height:1; }
+    .media-btn:hover { background:rgba(0,212,170,0.6); }
+    .media-indicators { position:absolute; bottom:0.75rem; left:50%; transform:translateX(-50%); display:flex; gap:0.4rem; z-index:10; }
+    .media-dot { width:8px; height:8px; border-radius:50%; background:white; cursor:pointer; opacity:0.4; transition:opacity 0.3s; }
+    .media-dot.active { opacity:0.85; }
+    .media-label { position:absolute; top:0.75rem; right:0.75rem; z-index:10; }
+    .media-label span { background:rgba(0,0,0,0.65); color:white; font-size:0.7rem; padding:0.25rem 0.6rem; border-radius:6px; }
+    .media-thumbs { display:flex; gap:0.4rem; flex-wrap:wrap; max-width:1100px; margin:1rem auto; padding:0 1rem; }
+    .media-thumb { height:72px; border-radius:8px; cursor:pointer; border:2px solid transparent; opacity:0.65; object-fit:cover; transition:all 0.2s; flex:1; min-width:90px; }
+    .media-thumb:hover { opacity:0.9; }
+    .media-thumb.active { border-color:var(--accent); opacity:1; }
+    .gallery-section { max-width:1100px; margin:2.5rem auto; padding:0 1rem; }
+    .gallery-section h2 { font-size:1.1rem; font-weight:800; color:var(--text); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0.75rem; }
+    .gallery-item { position:relative; border-radius:10px; overflow:hidden; cursor:pointer; aspect-ratio:16/9; background:var(--bg-card); }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.3s; }
+    .gallery-item:hover img { transform:scale(1.03); }
+    .gallery-item-overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.8)); padding:0.5rem; font-size:0.75rem; color:white; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="8" fill="var(--accent)"/>
+          <text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text>
+        </svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../guides/survival-guide.html">Survival Guide</a></li>
+          <li><a href="../guides/creature-bestiary.html">Creatures</a></li>
+          <li><a href="../../pages/seasonal/ea-updates.html">EA Updates</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:1.2rem;padding:0.5rem;">🌙</button>
+    </div>
+  </header>
+
+  <main style="padding:2rem 0 4rem;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 1rem;">
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Media</div>
+      <h1 style="font-size:1.8rem;font-weight:900;margin-bottom:0.5rem;">Subnautica 2 Media Gallery</h1>
+      <p style="color:#5a8090;font-size:0.9rem;margin-bottom:0;">Official trailers and gameplay screenshots from Subnautica 2 Early Access.</p>
+    </div>
+
+    <!-- Carousel -->
+    <div class="media-carousel" id="mediaCarousel">
+      <div class="media-slide active" data-type="youtube" data-src="i8oqrucfXQo">
+        <iframe src="https://www.youtube.com/embed/i8oqrucfXQo?enablejsapi=1" title="Subnautica 2 Official Trailer" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="media-slide" data-type="steam" data-src="https://video.akamai.steamstatic.com/store_trailers/1962700/1862467419/5631393dd23dad76bcb0c7917c2f60891948158a/1776997487/hls_264_master.m3u8?t=1777561225">
+        <video id="mediaVideo1" controls style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="media-slide" data-type="steam" data-src="https://video.akamai.steamstatic.com/store_trailers/1962700/1381761660/62855c0fcad0dee2938dfe86b5894cd342f3e23f/1778732086/hls_264_master.m3u8?t=1778770818">
+        <video id="mediaVideo2" controls style="width:100%;height:100%;object-fit:cover;"></video>
+      </div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss01.jpg" alt="Screenshot 1"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss02.jpg" alt="Screenshot 2"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss03.jpg" alt="Screenshot 3"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss04.jpg" alt="Screenshot 4"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss05.jpg" alt="Screenshot 5"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss06.jpg" alt="Screenshot 6"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss07.jpg" alt="Screenshot 7"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss08.jpg" alt="Screenshot 8"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss09.jpg" alt="Screenshot 9"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss10.jpg" alt="Screenshot 10"></div>
+      <div class="media-slide" data-type="image"><img src="../../images/carousel/screenshots/ss11.jpg" alt="Screenshot 11"></div>
+
+      <div class="media-controls">
+        <button class="media-btn" onclick="mediaPrev()">&#8249;</button>
+        <button class="media-btn" onclick="mediaNext()">&#8250;</button>
+      </div>
+      <div class="media-indicators" id="mediaIndicators"></div>
+      <div class="media-label"><span id="mediaLabel">Official Trailer</span></div>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="media-thumbs" id="mediaThumbs"></div>
+
+    <!-- Screenshots Grid -->
+    <div class="gallery-section">
+      <h2>📷 Gameplay Screenshots</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="mediaGo(3)"><img src="../../images/carousel/screenshots/ss01.jpg" alt=""><div class="gallery-item-overlay">Screenshot 1</div></div>
+        <div class="gallery-item" onclick="mediaGo(4)"><img src="../../images/carousel/screenshots/ss02.jpg" alt=""><div class="gallery-item-overlay">Screenshot 2</div></div>
+        <div class="gallery-item" onclick="mediaGo(5)"><img src="../../images/carousel/screenshots/ss03.jpg" alt=""><div class="gallery-item-overlay">Screenshot 3</div></div>
+        <div class="gallery-item" onclick="mediaGo(6)"><img src="../../images/carousel/screenshots/ss04.jpg" alt=""><div class="gallery-item-overlay">Screenshot 4</div></div>
+        <div class="gallery-item" onclick="mediaGo(7)"><img src="../../images/carousel/screenshots/ss05.jpg" alt=""><div class="gallery-item-overlay">Screenshot 5</div></div>
+        <div class="gallery-item" onclick="mediaGo(8)"><img src="../../images/carousel/screenshots/ss06.jpg" alt=""><div class="gallery-item-overlay">Screenshot 6</div></div>
+        <div class="gallery-item" onclick="mediaGo(9)"><img src="../../images/carousel/screenshots/ss07.jpg" alt=""><div class="gallery-item-overlay">Screenshot 7</div></div>
+        <div class="gallery-item" onclick="mediaGo(10)"><img src="../../images/carousel/screenshots/ss08.jpg" alt=""><div class="gallery-item-overlay">Screenshot 8</div></div>
+        <div class="gallery-item" onclick="mediaGo(11)"><img src="../../images/carousel/screenshots/ss09.jpg" alt=""><div class="gallery-item-overlay">Screenshot 9</div></div>
+        <div class="gallery-item" onclick="mediaGo(12)"><img src="../../images/carousel/screenshots/ss10.jpg" alt=""><div class="gallery-item-overlay">Screenshot 10</div></div>
+        <div class="gallery-item" onclick="mediaGo(13)"><img src="../../images/carousel/screenshots/ss11.jpg" alt=""><div class="gallery-item-overlay">Screenshot 11</div></div>
+      </div>
+    </div>
+
+    <!-- Trailers Grid -->
+    <div class="gallery-section">
+      <h2>🎬 Official Trailers</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="mediaGo(0)">
+          <img src="../../images/carousel/trailer1_thumb.jpg" alt="Trailer 1">
+          <div class="gallery-item-overlay">官方宣传片 (2024.10.18)</div>
+        </div>
+        <div class="gallery-item" onclick="mediaGo(1)">
+          <img src="../../images/carousel/trailer2_thumb.jpg" alt="Trailer 2">
+          <div class="gallery-item-overlay">官方宣传片 2 (2026.04.30)</div>
+        </div>
+        <div class="gallery-item" onclick="mediaGo(2)">
+          <img src="../../images/carousel/trailer3_thumb.jpg" alt="Trailer 3">
+          <div class="gallery-item-overlay">EA Launch Trailer (2026.05.14)</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">Subnautica 2 Wiki © 2026 — Not affiliated with Unknown Worlds Entertainment</span>
+      <div class="footer-links">
+        <a href="../guides/survival-guide.html">Survival Guide</a>
+        <a href="../guides/creature-bestiary.html">Creatures</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/header.js"></script>
+  <script>
+  const TOTAL = 14;
+  const LABELS = [
+    'Official Trailer', '官方宣传片 2 (2026.04.30)', 'EA Launch Trailer (2026.05.14)',
+    'Screenshot 1', 'Screenshot 2', 'Screenshot 3', 'Screenshot 4', 'Screenshot 5',
+    'Screenshot 6', 'Screenshot 7', 'Screenshot 8', 'Screenshot 9', 'Screenshot 10', 'Screenshot 11'
+  ];
+  const THUMBS = [
+    '../../images/carousel/trailer1_thumb.jpg',
+    '../../images/carousel/trailer2_thumb.jpg',
+    '../../images/carousel/trailer3_thumb.jpg',
+    '../../images/carousel/screenshots/ss01.jpg',
+    '../../images/carousel/screenshots/ss02.jpg',
+    '../../images/carousel/screenshots/ss03.jpg',
+    '../../images/carousel/screenshots/ss04.jpg',
+    '../../images/carousel/screenshots/ss05.jpg',
+    '../../images/carousel/screenshots/ss06.jpg',
+    '../../images/carousel/screenshots/ss07.jpg',
+    '../../images/carousel/screenshots/ss08.jpg',
+    '../../images/carousel/screenshots/ss09.jpg',
+    '../../images/carousel/screenshots/ss10.jpg',
+    '../../images/carousel/screenshots/ss11.jpg',
+  ];
+  let current = 0;
+
+  function mediaGo(n) {
+    const slides = document.querySelectorAll('.media-slide');
+    slides.forEach((s, i) => {
+      if (i === n) {
+        s.classList.add('active');
+        if (s.dataset.type === 'steam' && !s.querySelector('video').src) {
+          s.querySelector('video').src = s.dataset.src;
+          s.querySelector('video').load();
+        }
+      } else {
+        s.classList.remove('active');
+        const v = s.querySelector('video');
+        if (v) v.pause();
+      }
+    });
+    document.querySelectorAll('.media-dot').forEach((d, i) => d.classList.toggle('active', i === n));
+    document.querySelectorAll('.media-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === n);
+      t.style.borderColor = i === n ? 'var(--accent)' : 'transparent';
+      t.style.opacity = i === n ? '1' : '0.65';
+    });
+    document.getElementById('mediaLabel').textContent = LABELS[n] || '';
+    current = n;
+  }
+
+  function mediaNext() { mediaGo((current + 1) % TOTAL); }
+  function mediaPrev() { mediaGo((current - 1 + TOTAL) % TOTAL); }
+  setInterval(() => { mediaNext(); }, 7000);
+
+  const dots = document.getElementById('mediaIndicators');
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('span');
+    d.className = 'media-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => mediaGo(i);
+    dots.appendChild(d);
+  }
+
+  const thumbs = document.getElementById('mediaThumbs');
+  THUMBS.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'media-thumb' + (i === 0 ? ' active' : '');
+    img.onclick = () => mediaGo(i);
+    img.title = LABELS[i];
+    thumbs.appendChild(img);
+  });
+  </script>
+</body>
+</html>
