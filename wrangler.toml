@@ -1,6 +1,7 @@
 name = "subnautica2"
 compatibility_date = "2026-05-26"
 
+
 [assets]
 directory = "."
 exclude = ["node_modules/**", "wrangler.toml", "wrangler.jsonc", "package.json", "package-lock.json", ".git/**"]
