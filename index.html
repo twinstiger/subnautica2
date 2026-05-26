@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subnautica 2 Wiki — The Ultimate Guide</title>
+  <meta name="description" content="Complete Subnautica 2 wiki with survival guides, creature bestiary, item recipes, vehicle database, biome maps, and Biomod system. Your one-stop resource for surviving on Proteus planet.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== HOMEPAGE HERO ===== */
+    .wiki-hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #0a1628 0%, #0f2a4a 50%, #0a1628 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 3rem 0 2.5rem;
+    }
+    .wiki-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%2300d4aa' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+    .wiki-hero-inner {
+      position: relative; width: 95%; max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;
+    }
+    .wiki-hero-tag {
+      display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); background: rgba(0,212,170,0.12);
+      border: 1px solid rgba(0,212,170,0.3); padding: 0.25rem 0.75rem; border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .wiki-hero h1 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 900; margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #e8f4f8 0%, #00d4aa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .wiki-hero-desc { color: #a8c8d8; font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; max-width: 480px; }
+    .wiki-hero-stats { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .wiki-stat { text-align: center; }
+    .wiki-stat-num { font-size: 1.5rem; font-weight: 900; color: var(--accent); font-family: 'Orbitron', monospace; }
+    .wiki-stat-label { font-size: 0.7rem; color: #5a8090; text-transform: uppercase; letter-spacing: 0.08em; }
+    .wiki-hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .wiki-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .wiki-btn-primary { background: var(--accent); color: #0a1628; }
+    .wiki-btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,212,170,0.3); }
+    .wiki-btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+    .wiki-btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .wiki-hero-img {
+      position: relative; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #0f2a4a, #0a1628);
+    }
+    .wiki-hero-img::before {
+      content: '🌊'; font-size: 4rem; position: relative;
+    }
+    /* ===== SECTION HEADER ===== */
+    .wiki-section-header { margin-bottom: 2rem; }
+    .wiki-section-title { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 0.25rem; }
+    .wiki-section-sub { color: #5a8090; font-size: 0.85rem; }
+
+    /* ===== CONTENT GRID ===== */
+    .wiki-content { width: 95%; max-width: 1100px; margin: 0 auto; padding: 2.5rem 0; }
+    .wiki-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .wiki-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; text-decoration: none; transition: all 0.2s;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .wiki-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .wiki-card-icon { font-size: 2rem; }
+    .wiki-card-title { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .wiki-card-desc { font-size: 0.78rem; color: #5a8090; line-height: 1.55; }
+    .wiki-card-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.2); padding: 0.15rem 0.5rem; border-radius: 9999px; }
+    .wiki-card-body { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+    .wiki-card.meta { display: flex; justify-content: space-between; align-items: center; }
+
+    /* ===== SURVIVAL FLOW ===== */
+    .wiki-survival { margin: 2.5rem 0; }
+    .wiki-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1rem; }
+    .wiki-flow-step {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.25rem 1rem; text-decoration: none; transition: all 0.2s; text-align: center;
+    }
+    .wiki-flow-step:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .wiki-flow-num { display: inline-block; width: 28px; height: 28px; background: var(--accent); color: #0a1628; border-radius: 50%; font-size: 0.8rem; font-weight: 900; line-height: 28px; margin-bottom: 0.75rem; }
+    .wiki-flow-title { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.375rem; }
+    .wiki-flow-desc { font-size: 0.7rem; color: #5a8090; line-height: 1.5; }
+
+    /* ===== NEWS ===== */
+    .wiki-news { margin: 2.5rem 0; }
+    .wiki-news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .wiki-news-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.25rem; text-decoration: none; transition: all 0.2s;
+    }
+    .wiki-news-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .wiki-news-date { font-size: 0.7rem; color: #5a8090; margin-bottom: 0.375rem; }
+    .wiki-news-title { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.375rem; }
+    .wiki-news-desc { font-size: 0.78rem; color: #5a8090; }
+
+    /* ===== FOOTER ===== */
+    .footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 1rem; }
+    .footer-inner { width: 95%; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { color: #5a8090; font-size: 0.8rem; }
+    .footer-links { display: flex; gap: 1rem; }
+    .footer-links a { color: #5a8090; font-size: 0.8rem; text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+
+    @media(max-width: 900px) {
+      .wiki-hero-inner { grid-template-columns: 1fr; }
+      .wiki-hero-img { display: none; }
+      .wiki-grid { grid-template-columns: 1fr 1fr; }
+      .wiki-flow { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width: 600px) {
+      .wiki-grid { grid-template-columns: 1fr; }
+      .wiki-flow { grid-template-columns: 1fr; }
+      .wiki-news-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="8" fill="var(--accent)"/>
+          <text x="18" y="25" font-size="18" text-anchor="middle" fill="#0a1628" font-family="Orbitron,sans-serif" font-weight="900">S2</text>
+        </svg>
+        <span style="font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;color:var(--text);margin-left:0.5rem;">Subnautica 2 <span style="color:var(--accent)">Wiki</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li>
+            <a class="nav-item dropdown-toggle" onclick="return false;">Guides ▾</a>
+            <ul class="dropdown">
+              <li><a href="pages/guides/survival-guide.html">Survival Guide</a></li>
+              <li><a href="pages/guides/story-walkthrough.html">Story Walkthrough</a></li>
+              <li><a href="pages/guides/biomod-guide.html">Biomod Guide</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="nav-item dropdown-toggle" onclick="return false;">Database ▾</a>
+            <ul class="dropdown">
+              <li><a href="pages/guides/creature-bestiary.html">Creature Bestiary</a></li>
+              <li><a href="pages/guides/item-database.html">Item Database</a></li>
+              <li><a href="pages/guides/vehicle-database.html">Vehicles</a></li>
+              <li><a href="pages/guides/biome-guide.html">Biomes &amp; Map</a></li>
+            </ul>
+          </li>
+          <li><a href="pages/guides/biomod-guide.html">Biomods</a></li>
+          <li><a href="pages/seasonal/ea-updates.html">EA Updates</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:1.2rem;padding:0.5rem;">🌙</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="wiki-hero">
+    <div class="wiki-hero-inner">
+      <div class="wiki-hero-left">
+        <span class="wiki-hero-tag">Early Access — Chapter 1-3</span>
+        <h1>Subnautica 2 Wiki</h1>
+        <p class="wiki-hero-desc">The complete survival guide for Proteus planet. Deep ocean exploration, creature bestiary, item recipes, vehicle database, and Biomod system — all in one place.</p>
+        <div class="wiki-hero-stats">
+          <div class="wiki-stat">
+            <div class="wiki-stat-num">51+</div>
+            <div class="wiki-stat-label">Creatures</div>
+          </div>
+          <div class="wiki-stat">
+            <div class="wiki-stat-num">7</div>
+            <div class="wiki-stat-label">Biomes</div>
+          </div>
+          <div class="wiki-stat">
+            <div class="wiki-stat-num">12</div>
+            <div class="wiki-stat-label">Biomods</div>
+          </div>
+          <div class="wiki-stat">
+            <div class="wiki-stat-num">3</div>
+            <div class="wiki-stat-label">Chapters</div>
+          </div>
+        </div>
+        <div class="wiki-hero-actions">
+          <a href="pages/guides/survival-guide.html" class="wiki-btn wiki-btn-primary">Survival Guide</a>
+          <a href="pages/guides/creature-bestiary.html" class="wiki-btn wiki-btn-secondary">Creature Bestiary</a>
+        </div>
+      </div>
+      <div class="wiki-hero-img"></div>
+    </div>
+  </section>
+
+  <!-- CONTENT GRID -->
+  <main class="wiki-content">
+    <!-- Quick Start -->
+    <div class="wiki-survival">
+      <div class="wiki-section-header">
+        <div class="wiki-section-title">🚀 Quick Start — First Dives</div>
+        <div class="wiki-section-sub">Follow these 4 steps to survive your first 30 minutes on Proteus</div>
+      </div>
+      <div class="wiki-flow">
+        <a href="pages/guides/survival-guide.html#first-dive" class="wiki-flow-step">
+          <div class="wiki-flow-num">1</div>
+          <div class="wiki-flow-title">First Dive</div>
+          <div class="wiki-flow-desc">Collect Water Slugs, craft basic tools, secure food and water</div>
+        </a>
+        <a href="pages/guides/survival-guide.html#second-dive" class="wiki-flow-step">
+          <div class="wiki-flow-num">2</div>
+          <div class="wiki-flow-title">Scan Key</div>
+          <div class="wiki-flow-desc">Find Scanner, unlock blueprints for advanced tools</div>
+        </a>
+        <a href="pages/guides/survival-guide.html#third-dive" class="wiki-flow-step">
+          <div class="wiki-flow-num">3</div>
+          <div class="wiki-flow-title">Digest</div>
+          <div class="wiki-flow-desc">Unlock Digest ability, solve food problem with alien diet</div>
+        </a>
+        <a href="pages/guides/survival-guide.html#fourth-dive" class="wiki-flow-step">
+          <div class="wiki-flow-num">4</div>
+          <div class="wiki-flow-title">Build Base</div>
+          <div class="wiki-flow-desc">Construct Habitat Builder, start your first underwater base</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Database -->
+    <div style="margin-top:2.5rem;">
+      <div class="wiki-section-header">
+        <div class="wiki-section-title">📚 Database</div>
+        <div class="wiki-section-sub">Everything you need to know, organized</div>
+      </div>
+      <div class="wiki-grid">
+        <a href="pages/guides/creature-bestiary.html" class="wiki-card">
+          <div class="wiki-card-icon">🐙</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Core</span>
+            </div>
+            <div class="wiki-card-title">Creature Bestiary</div>
+            <div class="wiki-card-desc">51+ creatures tracked — behavior, drops, threat level, and habitat for each.</div>
+          </div>
+        </a>
+        <a href="pages/guides/item-database.html" class="wiki-card">
+          <div class="wiki-card-icon">🔧</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Core</span>
+            </div>
+            <div class="wiki-card-title">Item Encyclopedia</div>
+            <div class="wiki-card-desc">Resources, tools, equipment, and consumables — with full crafting recipes.</div>
+          </div>
+        </a>
+        <a href="pages/guides/vehicle-database.html" class="wiki-card">
+          <div class="wiki-card-icon">🚤</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Core</span>
+            </div>
+            <div class="wiki-card-title">Vehicle Database</div>
+            <div class="wiki-card-desc">Tadpole and future vehicles — specs, upgrades, and how to obtain them.</div>
+          </div>
+        </a>
+        <a href="pages/guides/biome-guide.html" class="wiki-card">
+          <div class="wiki-card-icon">🗺️</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Core</span>
+            </div>
+            <div class="wiki-card-title">Biomes &amp; Map</div>
+            <div class="wiki-card-desc">7 POIs with coordinates, resources, threat levels, and navigation guides.</div>
+          </div>
+        </a>
+        <a href="pages/guides/biomod-guide.html" class="wiki-card">
+          <div class="wiki-card-icon">⚡</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Core</span>
+            </div>
+            <div class="wiki-card-title">Biomod System</div>
+            <div class="wiki-card-desc">Dash, Oxygen Control, Heat Resistance and more — unlock conditions &amp; effects.</div>
+          </div>
+        </a>
+        <a href="pages/guides/base-building.html" class="wiki-card">
+          <div class="wiki-card-icon">🏗️</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Guide</span>
+            </div>
+            <div class="wiki-card-title">Base Building</div>
+            <div class="wiki-card-desc">Modules, power systems, decoration, and optimal base locations.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Story + Co-op -->
+    <div style="margin-top:2.5rem;">
+      <div class="wiki-grid" style="grid-template-columns: 1fr 1fr;">
+        <a href="pages/guides/story-walkthrough.html" class="wiki-card">
+          <div class="wiki-card-icon">📖</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Guide</span>
+            </div>
+            <div class="wiki-card-title">Story Walkthrough</div>
+            <div class="wiki-card-desc">Chapter 1-3 walkthrough with objectives, key locations, and decision points. Full 10-chapter plan.</div>
+          </div>
+        </a>
+        <a href="pages/guides/coop-guide.html" class="wiki-card">
+          <div class="wiki-card-icon">👥</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-meta">
+              <span class="wiki-card-tag">Guide</span>
+            </div>
+            <div class="wiki-card-title">Co-op Guide</div>
+            <div class="wiki-card-desc">4-player cross-platform multiplayer — setup, role division, and advanced tips.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- EA Updates -->
+    <div class="wiki-news">
+      <div class="wiki-section-header">
+        <div class="wiki-section-title">📰 EA Updates</div>
+        <div class="wiki-section-sub">Track every Subnautica 2 version as the Early Access develops</div>
+      </div>
+      <div class="wiki-news-grid">
+        <a href="pages/seasonal/ea-updates.html" class="wiki-news-card">
+          <div class="wiki-news-date">May 14, 2026 — v1.0.0</div>
+          <div class="wiki-news-title">Subnautica 2 EA Launch</div>
+          <div class="wiki-news-desc">Chapter 1-3 available at launch. 51+ creatures, 7 biomes, 12 Biomods. Multiplayer enabled day one.</div>
+        </a>
+        <a href="pages/seasonal/ea-updates.html" class="wiki-news-card">
+          <div class="wiki-news-date">Ongoing — Roadmap</div>
+          <div class="wiki-news-title">10-Chapter Plan</div>
+          <div class="wiki-news-desc">EA expected to last 2-3 years. Full game = 10 chapters (~10 hrs each). Chapters 4-10 ahead.</div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">Subnautica 2 Wiki © 2026 — Not affiliated with Unknown Worlds Entertainment</span>
+      <div class="footer-links">
+        <a href="pages/guides/survival-guide.html">Survival Guide</a>
+        <a href="pages/guides/creature-bestiary.html">Creatures</a>
+        <a href="pages/seasonal/ea-updates.html">Updates</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/header.js"></script>
+</body>
+</html>
