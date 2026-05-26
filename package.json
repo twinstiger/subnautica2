@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "python3 -m http.server 8080",
-    "build": "echo 'Static site - no build step required'"
+    "build": "echo 'Static site - no build step required' && rm -rf node_modules wrangler.log",
+    "deploy": "echo 'Use Cloudflare Pages auto-deploy'"
   },
   "repository": {
     "url": "git+https://github.com/yourusername/www.savebook.git"
