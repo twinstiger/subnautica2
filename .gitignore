@@ -15,7 +15,7 @@ Desktop.ini
 *.log
 npm-debug.log*
 
-# Dependencies (if any future npm use)
+# Dependencies
 node_modules/
 
 # Build output
@@ -26,3 +26,8 @@ build/
 # Temp files
 *.tmp
 *.temp
+
+# Wrangler
+.wrangler/
+wrangler.jsonc
+wrangler.toml
