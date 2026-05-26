@@ -46,12 +46,13 @@
     .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 1rem; }
     .filter-btn { background: var(--bg-card); border: 1px solid var(--border); color: #5a8090; padding: 0.35rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; }
     .filter-btn.active, .filter-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,170,0.08); }
-    .tab-bar { display: flex; gap: 0.5rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .tab-bar { display: flex; gap: 0.5rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; flex-wrap: wrap; }
     .tab-btn { background: none; border: none; color: #5a8090; padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
     .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
     .tab-btn:hover { color: var(--text); }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
+    .tab-bar::after { content: ""; display: table; clear: both; }
+    .tab-content { display: none; visibility: hidden; opacity: 0; transition: opacity 0.25s; position: relative; }
+    .tab-content.active { display: block; visibility: visible; opacity: 1; }
   </style>
 </head>
 <body>
@@ -878,8 +879,8 @@
   <script src="../../js/header.js"></script>
   <script>
   function showTab(tabName) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    var contents = document.querySelectorAll('.tab-content'); for (var i = 0; i < contents.length; i++) { contents[i].classList.remove('active'); contents[i].style.display = 'none'; }
+    var buttons = document.querySelectorAll('.tab-btn'); for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
     document.getElementById('tab-' + tabName).classList.add('active');
     document.querySelector('.tab-btn[onclick="showTab(\\'' + tabName + '\\')"]').classList.add('active');
   }
