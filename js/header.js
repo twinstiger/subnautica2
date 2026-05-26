@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   tabButtons.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      const target = this.getAttribute('data-tab');
+      const target = btn.getAttribute('data-tab');
       tabButtons.forEach(function(b) { b.classList.remove('active'); });
       tabContents.forEach(function(c) { c.classList.remove('active'); });
-      this.classList.add('active');
-      const targetContent = document.getElementById(target);
+      btn.classList.add('active');
+      const targetContent = document.getElementById('tab-' + target);
       if (targetContent) {
         targetContent.classList.add('active');
       }
@@ -45,6 +45,30 @@ document.addEventListener('DOMContentLoaded', function() {
         item.classList.toggle('active');
       });
     }
+  });
+
+  // === Tab switching (creature-bestiary) ===
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const target = btn.getAttribute('data-tab');
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      const targetContent = document.getElementById('tab-' + target);
+      if (targetContent) targetContent.classList.add('active');
+    });
+  });
+
+  // === Item filtering (item-database) ===
+  document.querySelectorAll('.filter-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const category = btn.getAttribute('data-category') || btn.textContent.trim();
+      document.querySelectorAll('.filter-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.item-section').forEach(function(section) {
+        section.style.display = (category === 'all' || section.dataset.category === category) ? 'block' : 'none';
+      });
+    });
   });
 
   const darkModeToggle = document.querySelector('.dark-mode-toggle');

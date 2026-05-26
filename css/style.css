@@ -90,7 +90,7 @@ p {
   padding: 0 20px;
 }
 
-.header {
+header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -98,6 +98,8 @@ p {
   border-bottom: 3px solid var(--accent);
   height: var(--header-height);
   box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
 }
 
 .header-inner {

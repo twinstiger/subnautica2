@@ -47,6 +47,7 @@
     .tag-vehicle { color: #1abc9c; background: rgba(26,188,156,0.15); }
     .tag-upgrade { color: #f39c12; background: rgba(243,156,18,0.15); }
   </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9420599375364457" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -58,19 +59,21 @@
       <nav>
         <ul class="nav-links">
           <li><a href="../../index.html">Home</a></li>
-          <li><a href="index.html" class="active">Guides ▾</a>
+          <li>
+            <a href="index.html" class="nav-item dropdown-toggle">Guides ▾</a>
             <ul class="dropdown">
               <li><a href="survival-guide.html">Survival Guide</a></li>
               <li><a href="story-walkthrough.html">Story Walkthrough</a></li>
               <li><a href="biomod-guide.html">Biomod Guide</a></li>
             </ul>
           </li>
-          <li><a href="creature-bestiary.html">Creatures</a></li>
-          <li><a href="item-database.html">Items</a></li>
+          <li><a href="creature-bestiary.html" class="nav-item">Creatures</a></li>
+          <li><a href="item-database.html" class="active">Items</a></li>
+          <li><a href="vehicle-database.html" class="nav-item">Vehicles</a></li>
+          <li><a href="../media/gallery.html" class="nav-item">Media</a></li>
+          <li><a href="../seasonal/ea-updates.html" class="nav-item">EA Updates</a></li>
         </ul>
-      </nav>
-      <button id="theme-toggle" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;font-size:1.2rem;">🌙</button>
-    </div>
+      </nav></div>
   </header>
   <main class="container" style="max-width:1100px">
     <div class="breadcrumb"><a href="../../index.html">Home</a> <span>/</span> <span>Item Encyclopedia</span></div>
@@ -78,13 +81,13 @@
     <p style="color:#5a8090;margin-bottom:0.5rem;font-size:0.9rem;">Complete crafting recipes for Subnautica 2 Early Access v1.0.</p>
 
     <div class="filter-tabs">
-      <button class="filter-tab active" onclick="filterItems('all')">All</button>
-      <button class="filter-tab" onclick="filterItems('material')">Materials</button>
-      <button class="filter-tab" onclick="filterItems('tool')">Tools</button>
-      <button class="filter-tab" onclick="filterItems('equipment')">Equipment</button>
-      <button class="filter-tab" onclick="filterItems('consumable')">Consumables</button>
-      <button class="filter-tab" onclick="filterItems('base')">Base Building</button>
-      <button class="filter-tab" onclick="filterItems('vehicle')">Vehicles</button>
+      <button class="filter-tab active" data-category="all">All</button>
+      <button class="filter-tab" data-category="material">Materials</button>
+      <button class="filter-tab" data-category="tool">Tools</button>
+      <button class="filter-tab" data-category="equipment">Equipment</button>
+      <button class="filter-tab" data-category="consumable">Consumables</button>
+      <button class="filter-tab" data-category="base">Base Building</button>
+      <button class="filter-tab" data-category="vehicle">Vehicles</button>
     </div>
 
     <!-- Materials -->
@@ -773,7 +776,7 @@
           </div>
         </div>
         <div class="item-card" data-type="vehicle">
-          <img src="../../images/items_gamersky/item_Cavitation_Silencer.png" alt="Cavitation Silencer" class="item-img" loading="lazy">
+          <div class="item-img" style="display:flex;align-items:center;justify-content:center;background:var(--bg-secondary);color:#5a8090;font-size:0.7rem;text-align:center;padding:0.5rem;">No Image</div>
           <div class="item-body">
             <div class="item-name">Cavitation Silencer</div>
             <div class="item-type"><span class="item-tag tag-upgrade">Tadpole Upgrade</span></div>
@@ -809,20 +812,17 @@
 
   </main>
 
-  <footer class="footer"><div class="container"><div class="footer-bottom"><span class="footer-copy">Subnautica 2 Wiki © 2026</span><div class="footer-links"><a href="../../index.html">Home</a><a href="creature-bestiary.html">Creatures</a><a href="biomod-guide.html">Biomods</a></div></div></div></footer>
+    <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 savebook.net — Unofficial Fan Site</span>
+      <div class="footer-links">
+        <a href="../legal/about.html">About</a>
+        <a href="../legal/privacy.html">Privacy</a>
+        <a href="../legal/terms.html">Terms</a>
+        <a href="../legal/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
   <script src="../../js/header.js"></script>
-  <script>
-    function filterItems(category) {
-      document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-      document.querySelectorAll('.item-section').forEach(section => {
-        if (category === 'all' || section.dataset.category === category) {
-          section.style.display = 'block';
-        } else {
-          section.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
