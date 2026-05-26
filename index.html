@@ -217,17 +217,106 @@
     </div>
   </section>
 
-  <!-- VIDEO TRAILER -->
+  <!-- VIDEO CAROUSEL -->
   <section class="wiki-video" style="padding: 2rem 0; border-bottom: 1px solid var(--border);">
     <div style="width:95%;max-width:1100px;margin:0 auto;">
       <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;">Official Trailer</div>
       <h2 style="font-size:1.3rem;font-weight:900;margin-bottom:1rem;color:var(--text);">Watch Subnautica 2 in Action</h2>
-      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.4);margin-bottom:1.5rem;">
-        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/i8oqrucfXQo" title="Subnautica 2 Official Trailer" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+
+      <div id="videoCarousel" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.4);margin-bottom:1rem;">
+        <!-- Slide 1: YouTube -->
+        <div class="carousel-slide active" data-type="youtube" data-src="i8oqrucfXQo" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:1;transition:opacity 0.4s;">
+          <iframe id="carouselIframe" style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/i8oqrucfXQo?enablejsapi=1" title="Subnautica 2 Official Trailer" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <!-- Slide 2: Steam hls -->
+        <div class="carousel-slide" data-type="steam" data-src="https://video.akamai.steamstatic.com/store_trailers/1962700/1862467419/5631393dd23dad76bcb0c7917c2f60891948158a/1776997487/hls_264_master.m3u8?t=1777561225" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.4s;display:none;">
+          <video id="carouselVideo" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" controls></video>
+        </div>
+        <!-- Slide 3: Steam hls -->
+        <div class="carousel-slide" data-type="steam" data-src="https://video.akamai.steamstatic.com/store_trailers/1962700/1381761660/62855c0fcad0dee2938dfe86b5894cd342f3e23f/1778732086/hls_264_master.m3u8?t=1778770818" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.4s;display:none;">
+          <video id="carouselVideo2" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" controls></video>
+        </div>
+
+        <!-- Prev/Next -->
+        <button onclick="carouselPrev()" style="position:absolute;top:50%;left:1rem;transform:translateY(-50%);background:rgba(0,0,0,0.6);border:none;color:white;font-size:1.5rem;cursor:pointer;padding:0.5rem 0.75rem;border-radius:8px;z-index:10;">&#8249;</button>
+        <button onclick="carouselNext()" style="position:absolute;top:50%;right:1rem;transform:translateY(-50%);background:rgba(0,0,0,0.6);border:none;color:white;font-size:1.5rem;cursor:pointer;padding:0.5rem 0.75rem;border-radius:8px;z-index:10;">&#8250;</button>
+
+        <!-- Indicators -->
+        <div id="carouselIndicators" style="position:absolute;bottom:0.75rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;z-index:10;">
+          <span class="carousel-dot active" onclick="carouselGo(0)" style="width:10px;height:10px;border-radius:50%;background:white;cursor:pointer;opacity:0.8;"></span>
+          <span class="carousel-dot" onclick="carouselGo(1)" style="width:10px;height:10px;border-radius:50%;background:white;cursor:pointer;opacity:0.4;"></span>
+          <span class="carousel-dot" onclick="carouselGo(2)" style="width:10px;height:10px;border-radius:50%;background:white;cursor:pointer;opacity:0.4;"></span>
+        </div>
+
+        <!-- Slide labels -->
+        <div style="position:absolute;top:0.75rem;right:0.75rem;display:flex;gap:0.5rem;z-index:10;">
+          <span id="carouselLabel" style="background:rgba(0,0,0,0.6);color:white;font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:6px;">Official Trailer</span>
+        </div>
       </div>
-      <p style="color:#5a8090;font-size:0.9rem;line-height:1.7;max-width:700px;">Experience the deep ocean alien world of Proteus planet. Early Access includes the first 3 chapters — over 30 hours of gameplay with more to come.</p>
+
+      <!-- Thumbnails row -->
+      <div id="carouselThumbs" style="display:flex;gap:0.5rem;">
+        <img src="images/carousel/trailer1_thumb.jpg" onclick="carouselGo(0)" title="官方宣传片 1" style="height:64px;border-radius:8px;cursor:pointer;border:2px solid var(--accent);flex:1;object-fit:cover;">
+        <img src="images/carousel/trailer2_thumb.jpg" onclick="carouselGo(1)" title="官方宣传片 2" style="height:64px;border-radius:8px;cursor:pointer;border:2px solid transparent;opacity:0.7;flex:1;object-fit:cover;">
+        <img src="images/carousel/trailer3_thumb.jpg" onclick="carouselGo(2)" title="官方宣传片 3" style="height:64px;border-radius:8px;cursor:pointer;border:2px solid transparent;opacity:0.7;flex:1;object-fit:cover;">
+      </div>
+
+      <p style="color:#5a8090;font-size:0.9rem;line-height:1.7;max-width:700px;margin-top:1rem;">Experience the deep ocean alien world of Proteus planet. Early Access includes the first 3 chapters — over 30 hours of gameplay with more to come.</p>
     </div>
   </section>
+
+  <script>
+  let currentSlide = 0;
+  const totalSlides = 3;
+  const slideLabels = ['Official Trailer', 'Trailer 2 — EA Launch', 'Trailer 3 — New Content'];
+
+  function carouselGo(n) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const thumbs = document.querySelectorAll('#carouselThumbs img');
+    const label = document.getElementById('carouselLabel');
+    const iframe = document.getElementById('carouselIframe');
+    const videos = document.querySelectorAll('#videoCarousel video');
+
+    slides.forEach((s, i) => {
+      if (i === n) {
+        s.style.display = 'block';
+        s.style.opacity = '1';
+        // Load Steam video if needed
+        if (s.dataset.type === 'steam' && !s.querySelector('video').src) {
+          const v = s.querySelector('video');
+          v.src = s.dataset.src;
+          v.load();
+        }
+      } else {
+        s.style.opacity = '0';
+        setTimeout(() => { if (i !== n) s.style.display = 'none'; }, 400);
+        // Pause videos not showing
+        const vv = s.querySelector('video');
+        if (vv) { vv.pause(); vv.src = ''; }
+      }
+    });
+
+    // Pause iframe video when switching away
+    if (n !== 0 && iframe.src.includes('youtube')) {
+      // Can't easily pause YT iframe, just hide
+    }
+
+    dots.forEach((d, i) => d.style.opacity = i === n ? '0.8' : '0.4');
+    thumbs.forEach((t, i) => {
+      t.style.borderColor = i === n ? 'var(--accent)' : 'transparent';
+      t.style.opacity = i === n ? '1' : '0.7';
+    });
+    label.textContent = slideLabels[n] || 'Trailer ' + (n+1);
+    currentSlide = n;
+  }
+
+  function carouselNext() { carouselGo((currentSlide + 1) % totalSlides); }
+  function carouselPrev() { carouselGo((currentSlide - 1 + totalSlides) % totalSlides); }
+
+  // Auto-advance every 8s
+  setInterval(() => { carouselNext(); }, 8000);
+  </script>
 
   <!-- CONTENT GRID -->
   <main class="wiki-content">
