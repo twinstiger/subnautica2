@@ -198,7 +198,6 @@
   function videoPrev() { videoGo((vidCurrent - 1 + vidTotal) % vidTotal); }
   document.getElementById('videoNext').addEventListener('click', videoNext);
   document.getElementById('videoPrev').addEventListener('click', videoPrev);
-  setInterval(videoNext, 7000);
 
   var vd = document.getElementById('videoDots');
   for (var i = 0; i < vidTotal; i++) {
