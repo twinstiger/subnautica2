@@ -22,9 +22,15 @@
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1.6fr 1fr;
   gap: 2.5rem;
   align-items: center;
+}
+.wiki-hero-video {
+  order: 1;
+}
+.wiki-hero-left {
+  order: 2;
 }
 .wiki-hero-tag {
   display: inline-block;
@@ -279,7 +285,7 @@
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 .wiki-video-wrapper iframe {
   position: absolute;
